@@ -1,0 +1,106 @@
+{
+  "name": "electron-test",
+  "version": "7.0.10",
+  "private": true,
+  "main": "main.js",
+  "productName": "ApiPost7",
+  "homepage": "https://www.apipost.cn",
+  "companyName": "Beijing Arctic Fox Information Technology Co., Ltd.",
+  "company": "Beijing Arctic Fox Information Technology Co., Ltd.",
+  "copyright": "Beijing Arctic Fox Information Technology Co., Ltd.",
+  "postinstall": "electron-builder install-app-deps",
+  "scripts": {
+    "start": " electron . dev "
+  },
+  "build": {
+    "asar": false,
+    "afterSign": "./afterSign.js",
+    "appId": "com.apipost.apipost.fe.desctop.cn.7.x",
+    "productName": "ApiPost7",
+    "copyright": "Beijing Arctic Fox Information Technology Co., Ltd.",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "icon",
+      "public",
+      "static",
+      "utils",
+      "main.js",
+      "preload.js",
+      "utils.js",
+      "default.js",
+      "gotSend.js",
+      "build",
+      "update"
+    ],
+    "mac": {
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "icon": "./icon/1024x1024_apt.icns",
+      "category": "public.app-category.developer-tools",
+      "artifactName": "${productName}_Setup_${version}.${ext}",
+      "entitlements": "entitlemets.mac.plist",
+      "entitlementsInherit": "entitlemets.mac.plist"
+    },
+    "dmg": {
+      "sign": false
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "./icon/1024x1024_apt.ico",
+      "artifactName": "${productName}_Setup_${version}.${ext}"
+    },
+    "nsis": {
+      "language": "2052",
+      "oneClick": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "installerIcon": "./icon/1024x1024_apt.ico",
+      "installerHeaderIcon": "./icon/1024x1024_apt.ico",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true
+    },
+    "linux": {
+      "target": "deb",
+      "icon": "./icon/linux",
+      "maintainer": "admin@apipost.cn"
+    }
+  },
+  "dependencies": {
+    "adm-zip": "^0.5.9",
+    "apipost-inside-tools": "^0.1.10",
+    "apipost-mock": "^1.0.1",
+    "apipost-mock-schema": "^0.0.18",
+    "apipost-runtime": "file:.yalc/apipost-runtime",
+    "apipost-send": "^0.0.38",
+    "axios": "^0.27.2",
+    "body-parser": "^1.20.0",
+    "connect-multiparty": "^2.2.0",
+    "crypto-js": "^4.1.1",
+    "dayjs": "^1.11.5",
+    "ejs": "^3.1.6",
+    "electron-log": "^4.4.8",
+    "express": "^4.17.3",
+    "is-base64": "^1.1.0",
+    "jquery": "^3.6.1",
+    "json2md": "^2.0.0",
+    "lodash": "^4.17.21",
+    "node-machine-id": "^1.1.12",
+    "node-schedule": "^2.1.0",
+    "request": "^2.88.2",
+    "resolve-protobuf-schema": "^2.1.0",
+    "sm-crypto": "^0.3.11",
+    "system-sleep": "^1.3.7",
+    "systeminformation": "^5.12.6",
+    "urljoins": "^0.0.3",
+    "vm2": "^3.9.11"
+  },
+  "devDependencies": {
+    "apipost-runtime-response": "^1.0.34",
+    "cross-env": "7.0.3",
+    "electron": "^11.1.0",
+    "electron-builder": "^22.9.1",
+    "electron-notarize": "^1.1.1"
+  }
+}
